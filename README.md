@@ -604,3 +604,9 @@ The Weighted Round Robin pattern demonstrated significant advantages over standa
 ##### Simulation
 
 ##### Analysis
+
+## Appendix
+The modeling and simulation approach developed in Laboratory 5 is implemented in the accompanying Jupyter Notebook, using Python as the general-purpose programming language.
+
+You can find the notebook here:  
+📄 [(deliverable5-team-D.ipynb)](https://colab.research.google.com/drive/1XY74pOrYDfIandZHt7BR3xpSXfbPibQM?usp=sharing)
