@@ -25,7 +25,7 @@ The Rail Transportation System is responsible for managing and coordinating frei
 
 ### Iteration 1
 
-**Quality Attribute Verified:** Performance (Load Distribution) and Availability (Fault Tolerance)
+**Quality Attribute Verified:** Performance
 
 **Verification Focus:** Validating Round Robin load balancing behavior under extreme load and component failure scenarios
 
@@ -283,7 +283,7 @@ The Round Robin pattern is effective for uniform distribution across servers wit
 
 ### Iteration 2
 
-**Quality Attribute Verified:** Performance (Adaptive Load Distribution) and Availability (Graceful Degradation)
+**Quality Attribute Verified:** Performance
 
 **Verification Focus:** Validating Weighted Round Robin load balancing with heterogeneous server capacities under severe component degradation
 
