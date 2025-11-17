@@ -3,7 +3,7 @@ from textx.export import model_export
 import os
 
 # Carga la gramática
-mm = metamodel_from_file("metamodel-latest.tx")
+mm = metamodel_from_file("metamodel.tx")
 
 # Carga el modelo (instancia)
 model = mm.model_from_file("rts.arch")

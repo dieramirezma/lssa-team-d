@@ -17,9 +17,11 @@ subsystem: rts {
     component monitoringService rts_observability
     component healthChecker rts_healthcheck
 
-    component vehicle train1 { type tren }
-    component container container1 {type container}
-    component entryPoint???? station1 {type ???}
+    vehicle train1 {
+        type tren
+    }
+    component contenedor container1
+    hardware entry_point station1
 
     connector dbConnector cms -> cms_db
     connector dbConnector rps -> rps_db

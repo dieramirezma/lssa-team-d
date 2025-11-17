@@ -9,32 +9,29 @@ SubSystem:
 ;
 
 Element:
-    Component | Connector 
+    Connectable | Connector
 ;
 
 Component:
-    PhysicalComponent | LogicalComponent
-;
-
-LogicalComponent:
     'component' type=ComponentType name=ID
 ;
 
-PhysicalComponent:
-    Vehicle | HardwareDevice
+Connectable:
+    Component | HardwareDevice | Vehicle
 ;
 
 Connector:
-    'connector' type=ConnectorType fromComponent=[Component] '->' toComponent=[Component]
+    'connector' type=ConnectorType fromComponent=[Connectable] '->' toComponent=[Connectable]
 ;
 
 ComponentType:
     'frontend' | 'backend' | 'database' | 'channel' | 'loadBalancer' | 'fileStorage' | 'apiGateway'
-    | 'sensor' | 'vehicle' | 'contenedor' | 'eventBus' | 'proxy' | 'interface' | 'cache' | 'monitoringService' | 'healthChecker' 
+    | 'sensor' | 'vehicle' | 'contenedor' | 'eventBus' | 'proxy' | 'interface' | 'queue' | 'externalService'
+    | 'reverseProxy' | 'monolith' | 'cache' | 'monitoringService' | 'healthChecker'
 ;
 
 ConnectorType:
-    'RESTful' | 'db_connector' | 'gRPC' | 'MQTT' | 'SDK' | 'WebSocket' | 'amqp'  | 'CoAP' | 'gsm' | 'sqs' | 'GraphQL' | 'health_probe' | 'logging_stream'
+    'RESTful' | 'dbConnector' | 'gRPC' | 'MQTT' | 'SDK' | 'WebSocket' | 'amqp'  | 'CoAP' | 'gsm' | 'sqs' | 'GraphQL' | 'TCP/IP' | 'Bus' | 'Satellite' | 'health_probe' | 'logging_stream'
 ;
 
 HardwareDevice:
@@ -42,7 +39,7 @@ HardwareDevice:
 ;
 
 HardwareType:
-    'IoT' | 'radio' | 'weightSensor' | 'velocitySensor' | 'sensor_de_distancia' | 'weather_station' | 'entry_point' | 'sensor_de_caudal' | 'GPS'
+    'IoT' | 'radio' | 'weightSensor' | 'velocitySensor' | 'sensor_de_distancia' | 'weather_station' | 'entry_point' | 'sensor_de_caudal' | 'GPS' | 'gas_station' | 'control_tower'
 ;
 
 Vehicle:
@@ -53,6 +50,5 @@ Vehicle:
 ;
 
 VehicleType:
-    'truck' | 'tren' | 'vessel' | 'grua'
+    'truck' | 'tren' | 'vessel' | 'grua' | 'ship'
 ;
-
