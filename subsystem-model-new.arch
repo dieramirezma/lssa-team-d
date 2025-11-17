@@ -1,0 +1,55 @@
+sos: 
+subsystem: rts {
+    component backend ros
+    component backend idms
+    component backend fms
+    component backend cms
+    component backend rps
+    component backend sl
+    component database cms_db
+    component database rps_db
+    component database fms_db
+    component channel broker
+    component loadBalancer rts_load_balancer
+    component cache rts_cache
+    component monitoringService rts_observability
+    component healthChecker rts_healthcheck
+
+    vehicle train1 { type tren }
+
+
+    connector db_connector cms -> cms_db
+    connector db_connector rps -> rps_db
+    connector db_connector fms -> fms_db
+
+
+    connector amqp ros -> broker
+    connector amqp cms -> broker
+    connector amqp rps -> broker
+    connector amqp fms -> broker
+    connector amqp broker -> ros
+    connector amqp broker -> cms
+    connector amqp broker -> rps
+    connector amqp broker -> fms
+
+
+    connector CoAP sl -> idms
+    connector MQTT fms -> idms
+    connector MQTT cms -> idms
+    connector CoAP idms -> sl
+    connector MQTT idms -> fms
+    connector MQTT idms -> cms
+    connector gsm train1 -> sl
+
+
+    connector RESTful rts_load_balancer -> ros
+    connector RESTful rts_load_balancer -> cms
+    connector RESTful rts_load_balancer -> fms
+    connector RESTful rts_load_balancer -> rps
+    connector RESTful rts_load_balancer -> idms
+    connector health_probe rts_healthcheck -> fms
+    connector health_probe rts_healthcheck -> cms
+    connector health_probe rts_healthcheck -> rps
+    connector logging_stream rts_observability -> broker
+    connector RESTful fms -> rts_cache
+}
